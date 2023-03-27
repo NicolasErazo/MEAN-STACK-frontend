@@ -19,14 +19,14 @@
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Position Employee:</label>
                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                placeholder="Your Position" formControlName="position"
+                                placeholder=" Your Position" formControlName="position"
                                 [(ngModel)]="employeeService.selectedEmployee.position" [class.is-valid]="isPositionFieldValid"
                                 [class.is-invalid]="isPositionFieldInvalid">
                             <div class="fst-italic" *ngIf="positionField?.hasError('required') && this.form.get('position')?.touched">This Field is Required!!!</div>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Office Employee:</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your Office"
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder=" Your Office"
                                 formControlName="office" [(ngModel)]="employeeService.selectedEmployee.office" [class.is-valid]="isOfficeFieldValid"
                                 [class.is-invalid]="isOfficeFieldInvalid">
                             <div class="fst-italic" *ngIf="officeField?.hasError('required') && this.form.get('office')?.touched">This Field is Required!!!</div>
@@ -34,7 +34,7 @@
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Salary Employee:</label>
                             <input type="number" class="form-control" id="exampleInputPassword1"
-                                placeholder="Your Salary" formControlName="salary"
+                                placeholder=" Your Salary" formControlName="salary"
                                 [(ngModel)]="employeeService.selectedEmployee.salary" [class.is-valid]="isSalaryFieldValid"
                                 [class.is-invalid]="isSalaryFieldInvalid">
                             <div class="fst-italic" *ngIf="salaryField?.hasError('required') && this.form.get('salary')?.touched">This Field is Required!!!</div>
