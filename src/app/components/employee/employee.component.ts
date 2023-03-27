@@ -56,13 +56,10 @@ export class EmployeeComponent implements OnInit {
             );
             this.getEmployees();
             this.form.reset();
-          },
-          err => {
-            console.log(err);
           }
         )
       } else {
-        this.employeeService.putEmployee(this.form.value).subscribe((res) => {
+        this.employeeService.putEmployee(this.form.value).subscribe(res => {
           Swal.fire(
             'Updated!',
             'Your employee has been updated.',
