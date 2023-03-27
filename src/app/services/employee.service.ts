@@ -9,7 +9,7 @@ export class EmployeeService {
 
   selectedEmployee: Employee;
 
-  readonly URL_API = 'http://localhost:4000/employees';
+  readonly URL_API = 'https://api-rest-nodejs-fi7s.onrender.com/employees';
 
   constructor(private http: HttpClient) {
     this.selectedEmployee = new Employee();
