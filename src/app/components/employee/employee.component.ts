@@ -22,10 +22,10 @@ export class EmployeeComponent implements OnInit {
   private buildForm() {
     this.form = this.formBuilder.group({
       _id: [''],
-      name: ['', [Validators.required]],
-      position: ['', [Validators.required]],
-      office: ['', [Validators.required]],
-      salary: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      position: ['', [Validators.required, Validators.minLength(3)]],
+      office: ['', [Validators.required, Validators.minLength(3)]],
+      salary: ['', [Validators.required, Validators.min(1)]],
     })
   }
 
@@ -105,6 +105,54 @@ export class EmployeeComponent implements OnInit {
 
   resetForm(event: Event) {
     this.form.reset();
+  }
+
+  get nameField() {
+    return this.form.get('name');
+  }
+
+  get isNameFieldValid() {
+    return this.nameField?.touched && this.nameField.valid;
+  }
+
+  get isNameFieldInvalid() {
+    return this.nameField?.touched && this.nameField.invalid;
+  }
+
+  get positionField() {
+    return this.form.get('position');
+  }
+
+  get isPositionFieldValid() {
+    return this.form.get('position')?.touched && this.form.get('position')?.valid;
+  }
+
+  get isPositionFieldInvalid() {
+    return this.form.get('position')?.touched && this.form.get('position')?.invalid;
+  }
+
+  get officeField() {
+    return this.form.get('office');
+  }
+
+  get isOfficeFieldValid() {
+    return this.officeField?.touched && this.officeField.valid;
+  }
+
+  get isOfficeFieldInvalid() {
+    return this.officeField?.touched && this.officeField.invalid;
+  }
+
+  get salaryField() {
+    return this.form.get('salary');
+  }
+
+  get isSalaryFieldValid() {
+    return this.salaryField?.touched && this.salaryField.valid;
+  }
+
+  get isSalaryFieldInvalid() {
+    return this.salaryField?.touched && this.salaryField.invalid;
   }
 
 }
