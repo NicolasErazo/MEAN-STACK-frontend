@@ -1,0 +1,70 @@
+<div class="container py-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="form" (ngSubmit)="saveEmployee($event)">
+
+                        <input type="hidden" class="form-control" id="exampleInputEmail1" formControlName="_id"
+                            [(ngModel)]="employeeService.selectedEmployee._id">
+
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Name Employee:</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                placeholder="Your Fullname" formControlName="name"
+                                [(ngModel)]="employeeService.selectedEmployee.name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Position Employee:</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1"
+                                placeholder="Your Position" formControlName="position"
+                                [(ngModel)]="employeeService.selectedEmployee.position">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Office Employee:</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Your Office"
+                                formControlName="office" [(ngModel)]="employeeService.selectedEmployee.office">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Salary Employee:</label>
+                            <input type="number" class="form-control" id="exampleInputPassword1"
+                                placeholder="Your Salary" formControlName="salary"
+                                [(ngModel)]="employeeService.selectedEmployee.salary">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Save</button>&nbsp;
+                            <button type="submit" class="btn btn-secondary" (click)="resetForm($event)">Clean</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 text-center">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Office</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let employee of employees">
+                        <th scope="row">{{ employee.name }}</th>
+                        <td>{{ employee.position }}</td>
+                        <td>{{ employee.office }}</td>
+                        <td>{{ employee.salary }}</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" (click)="editEmployee(employee)"><i
+                                    class="fa-solid fa-pen"></i></button>&nbsp;
+                            <button class="btn btn-danger btn-sm" (click)="deleteEmployee(employee._id)"><i
+                                    class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
