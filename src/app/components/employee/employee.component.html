@@ -33,7 +33,9 @@
                         </div>
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Save</button>&nbsp;
-                            <button type="submit" class="btn btn-secondary" (click)="resetForm($event)">Clean</button>
+                            <button *ngIf="!employeeService.selectedEmployee._id" type="submit"
+                                class="btn btn-secondary" (click)="resetForm($event)">Clean</button>
+                            <a *ngIf="employeeService.selectedEmployee._id" href="/" class="btn btn-danger">Cancel</a>
                         </div>
                     </form>
                 </div>
