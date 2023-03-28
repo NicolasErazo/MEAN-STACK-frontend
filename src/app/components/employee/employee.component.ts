@@ -35,12 +35,8 @@ export class EmployeeComponent implements OnInit {
 
   getEmployees() {
     this.employeeService.getEmployees().subscribe(
-      res => {
-        this.employees = res;
-      },
-      err => {
-        console.log(err);
-      }
+      res => 
+        this.employees = res
     );
   }
 
