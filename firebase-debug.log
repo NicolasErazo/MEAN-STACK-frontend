@@ -1,0 +1,22 @@
+[debug] [2023-03-28T15:55:00.572Z] ----------------------------------------------------------------------
+[debug] [2023-03-28T15:55:00.580Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Nicol\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-03-28T15:55:00.583Z] CLI Version:   11.22.0
+[debug] [2023-03-28T15:55:00.583Z] Platform:      win32
+[debug] [2023-03-28T15:55:00.584Z] Node Version:  v18.12.1
+[debug] [2023-03-28T15:55:00.586Z] Time:          Tue Mar 28 2023 10:55:00 GMT-0500 (hora estándar de Colombia)
+[debug] [2023-03-28T15:55:00.587Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-28T15:55:00.891Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-28T15:55:00.893Z] > authorizing via signed-in user (Nico.lacho@outlook.com)
+[debug] [2023-03-28T15:55:00.893Z] [iam] checking project mean---stack for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-03-28T15:55:00.900Z] > refreshing access token with scopes: []
+[debug] [2023-03-28T15:55:00.908Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-03-28T15:55:00.908Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-28T15:55:01.431Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-03-28T15:55:01.432Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-03-28T15:55:01.479Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mean---stack:testIamPermissions [none]
+[debug] [2023-03-28T15:55:01.479Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mean---stack:testIamPermissions x-goog-quota-user=projects/mean---stack
+[debug] [2023-03-28T15:55:01.480Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mean---stack:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-28T15:55:01.990Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mean---stack:testIamPermissions 200
+[debug] [2023-03-28T15:55:01.990Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mean---stack:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-03-28T15:55:01.994Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mean---stack [none]
