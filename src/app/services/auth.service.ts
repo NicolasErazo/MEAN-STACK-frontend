@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  readonly URL_API = 'http://localhost:4000';
+  readonly URL_API = 'https://api-rest-nodejs-fi7s.onrender.com';
 
   constructor(private http: HttpClient, private router: Router) { }
 
