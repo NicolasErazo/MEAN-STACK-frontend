@@ -24,7 +24,7 @@
                         <div class="tab-content">
                             <div *ngIf="isLoginRoute()" class="tab-pane fade" routerLinkActive="show active"
                                 routerLink="/login" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-                                <form>
+                                <form [formGroup]="formLogin" (ngSubmit)="loginUser($event)">
                                     <div class="text-center mb-3">
                                         <p>Sign in with:</p>
                                         <button type="button" class="btn btn-link btn-floating mx-1">
@@ -48,7 +48,7 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="loginName" class="form-control">
+                                        <input type="email" id="loginName" class="form-control" formControlName="email">
                                         <label class="form-label" for="loginName" style="margin-left: 0px;">Email or
                                             username</label>
                                         <div class="form-notch">
@@ -60,7 +60,7 @@
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="loginPassword" class="form-control">
+                                        <input type="password" id="loginPassword" class="form-control" formControlName="password">
                                         <label class="form-label" for="loginPassword"
                                             style="margin-left: 0px;">Password</label>
                                         <div class="form-notch">
@@ -102,7 +102,7 @@
                             <div *ngIf="isRegisterRoute()" class="tab-pane fade" routerLinkActive="show active"
                                 routerLink="/register" id="pills-register" role="tabpanel"
                                 aria-labelledby="tab-register">
-                                <form>
+                                <form [formGroup]="formRegister" (ngSubmit)="registerUser($event)">
                                     <div class="text-center mb-3">
                                         <p>Sign up with:</p>
                                         <button type="button" class="btn btn-link btn-floating mx-1">
@@ -126,7 +126,7 @@
 
                                     <!-- Name input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="registerName" class="form-control">
+                                        <input type="text" id="registerName" class="form-control" formControlName="name">
                                         <label class="form-label" for="registerName"
                                             style="margin-left: 0px;">Name</label>
                                         <div class="form-notch">
@@ -138,7 +138,7 @@
 
                                     <!-- Username input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="registerUsername" class="form-control">
+                                        <input type="text" id="registerUsername" class="form-control" formControlName="username">
                                         <label class="form-label" for="registerUsername"
                                             style="margin-left: 0px;">Username</label>
                                         <div class="form-notch">
@@ -150,7 +150,7 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="registerEmail" class="form-control">
+                                        <input type="email" id="registerEmail" class="form-control" formControlName="email">
                                         <label class="form-label" for="registerEmail"
                                             style="margin-left: 0px;">Email</label>
                                         <div class="form-notch">
@@ -162,22 +162,9 @@
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="registerPassword" class="form-control">
+                                        <input type="password" id="registerPassword" class="form-control" formControlName="password">
                                         <label class="form-label" for="registerPassword"
                                             style="margin-left: 0px;">Password</label>
-                                        <div class="form-notch">
-                                            <div class="form-notch-leading" style="width: 9px;"></div>
-                                            <div class="form-notch-middle" style="width: 8px;"></div>
-                                            <div class="form-notch-trailing"></div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Repeat Password input -->
-                                    <div class="form-outline mb-4">
-                                        <input type="password" id="registerRepeatPassword" class="form-control">
-                                        <label class="form-label" for="registerRepeatPassword"
-                                            style="margin-left: 0px;">Repeat
-                                            password</label>
                                         <div class="form-notch">
                                             <div class="form-notch-leading" style="width: 9px;"></div>
                                             <div class="form-notch-middle" style="width: 8px;"></div>
@@ -198,7 +185,7 @@
 
                                     <div class="text-center mb-4">
                                         <button type="submit" class="btn btn-primary mb-3">Sign
-                                            in</button>
+                                            up</button>
                                     </div>
                                 </form>
                             </div>
