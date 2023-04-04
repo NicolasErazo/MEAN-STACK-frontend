@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -20,17 +21,17 @@ export class LoginComponent {
 
   private buildFormLogin() {
     this.formLogin = this.formBuilder.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
   private buildFormRegister() {
     this.formRegister = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      name: ['', [Validators.required, Validators.minLength(10)]],
+      username: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -39,9 +40,32 @@ export class LoginComponent {
       res => {
         localStorage.setItem('token', res.token);
         this.router.navigate(['/employees']);
+        Swal.fire({
+          title: "¡Welcome!",
+          width: 600,
+          padding: '3em',
+          color: '#716add',
+          background: '#fff url(https://i.pinimg.com/originals/79/50/0c/79500cbc38fa4bd5f5b7c5d640a5cb35.gif)',
+          position: 'center',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1000,
+        })
       },
       err => {
-        console.log(err);
+        if (err.status == 401) {
+          Swal.fire({
+            title: "¡Invalid username or password!",
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            background: '#fff url(https://i.pinimg.com/originals/79/50/0c/79500cbc38fa4bd5f5b7c5d640a5cb35.gif)',
+            position: 'center',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1000,
+          })
+        }
       }
     )
   }
