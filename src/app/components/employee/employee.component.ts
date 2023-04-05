@@ -45,22 +45,32 @@ export class EmployeeComponent implements OnInit {
       if (!this.form.value._id) {
         this.employeeService.createEmployee(this.form.value).subscribe(
           res => {
-            Swal.fire(
-              'Created!',
-              'Your employee has been created.',
-              'success'
-            );
+            Swal.fire({
+              title: "¡Created!",
+              width: 400,
+              padding: '3em',
+              color: '#716add',
+              position: 'center',
+              icon: 'success',
+              showConfirmButton: false,
+              timer: 1000,
+            })
             this.getEmployees();
             this.form.reset();
           }
         )
       } else {
         this.employeeService.putEmployee(this.form.value).subscribe(res => {
-          Swal.fire(
-            'Updated!',
-            'Your employee has been updated.',
-            'success'
-          );
+          Swal.fire({
+            title: "¡Updated!",
+            width: 400,
+            padding: '3em',
+            color: '#716add',
+            position: 'center',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 1000,
+          })
           this.getEmployees();
           this.form.reset();
         });
