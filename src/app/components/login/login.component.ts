@@ -42,7 +42,7 @@ export class LoginComponent {
         this.router.navigate(['/employees']);
         Swal.fire({
           title: "¡Welcome!",
-          width: 600,
+          width: 400,
           padding: '3em',
           color: '#716add',
           position: 'center',
@@ -55,7 +55,7 @@ export class LoginComponent {
         if (err.status == 401) {
           Swal.fire({
             title: "¡Invalid username or password!",
-            width: 600,
+            width: 400,
             padding: '3em',
             color: '#716add',
             position: 'center',

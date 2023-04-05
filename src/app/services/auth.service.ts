@@ -29,7 +29,7 @@ export class AuthService {
     this.router.navigate(['/login'])
     Swal.fire({
       title: "¡See you soon!",
-      width: 600,
+      width: 400,
       padding: '3em',
       color: '#716add',
       position: 'center',
