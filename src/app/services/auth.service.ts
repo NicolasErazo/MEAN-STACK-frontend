@@ -32,7 +32,6 @@ export class AuthService {
       width: 600,
       padding: '3em',
       color: '#716add',
-      background: '#fff url(https://i.pinimg.com/originals/79/50/0c/79500cbc38fa4bd5f5b7c5d640a5cb35.gif)',
       position: 'center',
       icon: 'success',
       showConfirmButton: false,
