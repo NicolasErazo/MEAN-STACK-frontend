@@ -1,11 +1,36 @@
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary" style="box-shadow: none;">
-  <div class="container-fluid justify-content-center">
-    <a class="navbar-brand" href="/"><img
-        src="https://www.mindinventory.com/blog/wp-content/uploads/2022/10/mean-stack.png" height="80px" alt="Logo"></a>
-    <button *ngIf="user()" class="btn btn-link nav-link active" aria-current="page" (click)="logout()">Logout</button>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/"><img src="https://tekhqs.com/Images/MeanStack/mean-stack_Horizontal.png"
+        height="70px" alt="Logo"></a>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a *ngIf="user()" class="nav-link active" href="/employees">Employees</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Team</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Projects</a>
+      </li> -->
+    </ul>
+    <!-- Left links -->
+    <!-- Avatar -->
+    <div class="btn-group dropstart" *ngIf="user()">
+      <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="rounded-circle" height="25"
+          alt="Black and White Portrait of a Man" loading="lazy" />
+      </a>
+      <ul class="dropdown-menu">
+        <a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Logout</a>
+        <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+      </ul>
+    </div>
+    <!--Fin Avatar-->
   </div>
-
 </nav>
+<!-- Navbar -->
 
 <router-outlet></router-outlet>
 

@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+* {
+    font-family: 'Delicious Handrawn', cursive;
+    box-sizing: border-box;
+}
