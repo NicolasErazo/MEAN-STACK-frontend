@@ -1,3 +1,15 @@
 .gradient-custom {
   background-image: linear-gradient(to bottom, #ffffff, #eeedfa, #dadcf5, #c5cbf1, #acbced, #a4b8e9, #9bb5e4, #93b1e0, #9eb7da, #aabdd4, #b8c2ce, #c6c7c8);
-  }
+}
+
+input {
+  border-radius: 10px;
+}
+
+input.is-invalid {
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% #ff5959;
+}
+
+input.is-valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+}

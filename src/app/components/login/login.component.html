@@ -48,7 +48,12 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="loginName" class="form-control" formControlName="email">
+                                        <input type="email" id="loginName" class="form-control" formControlName="email"
+                                            [class.is-valid]="isEmailFieldValid"
+                                            [class.is-invalid]="isEmailFieldInvalid">
+                                        <div class="fst-italic"
+                                            *ngIf="emailField?.hasError('required') && this.formLogin.get('email')?.touched">
+                                            ¡Email is Required!</div>
                                         <label class="form-label" for="loginName" style="margin-left: 0px;">Email or
                                             username</label>
                                         <div class="form-notch">
@@ -60,7 +65,12 @@
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="loginPassword" class="form-control" formControlName="password">
+                                        <input type="password" id="loginPassword" class="form-control"
+                                            formControlName="password" [class.is-valid]="isPasswordFieldValid"
+                                            [class.is-invalid]="isPasswordFieldInvalid">
+                                        <div class="fst-italic"
+                                            *ngIf="passwordField?.hasError('required') && this.formLogin.get('password')?.touched">
+                                            ¡Password is Required!</div>
                                         <label class="form-label" for="loginPassword"
                                             style="margin-left: 0px;">Password</label>
                                         <div class="form-notch">
@@ -89,8 +99,7 @@
 
                                     <!-- Submit button -->
                                     <div class="text-center mb-4">
-                                        <button type="submit"
-                                            class="btn btn-primary btn-block">Sign in</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
                                     </div>
                                     <!-- Register buttons -->
                                     <div class="text-center">
@@ -126,7 +135,12 @@
 
                                     <!-- Name input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="registerName" class="form-control" formControlName="name">
+                                        <input type="text" id="registerName" class="form-control" formControlName="name"
+                                            [class.is-valid]="isNameFieldRegisterValid"
+                                            [class.is-invalid]="isNameFieldRegisterInvalid">
+                                        <div class="fst-italic"
+                                            *ngIf="nameFieldRegister?.hasError('required') && this.formRegister.get('name')?.touched">
+                                            ¡Name is Required!</div>
                                         <label class="form-label" for="registerName"
                                             style="margin-left: 0px;">Name</label>
                                         <div class="form-notch">
@@ -138,7 +152,12 @@
 
                                     <!-- Username input -->
                                     <div class="form-outline mb-4">
-                                        <input type="text" id="registerUsername" class="form-control" formControlName="username">
+                                        <input type="text" id="registerUsername" class="form-control"
+                                            formControlName="username" [class.is-valid]="isUsernameFieldRegisterValid"
+                                            [class.is-invalid]="isUsernameFieldRegisterInvalid">
+                                        <div class="fst-italic"
+                                            *ngIf="usernameFieldRegister?.hasError('required') && this.formRegister.get('username')?.touched">
+                                            ¡Username is Required!</div>
                                         <label class="form-label" for="registerUsername"
                                             style="margin-left: 0px;">Username</label>
                                         <div class="form-notch">
@@ -150,7 +169,12 @@
 
                                     <!-- Email input -->
                                     <div class="form-outline mb-4">
-                                        <input type="email" id="registerEmail" class="form-control" formControlName="email">
+                                        <input type="email" id="registerEmail" class="form-control"
+                                            formControlName="email" [class.is-valid]="isEmailFieldRegisterValid"
+                                            [class.is-invalid]="isEmailFieldRegisterInvalid">
+                                        <div class="fst-italic"
+                                            *ngIf="emailFieldRegister?.hasError('required') && this.formRegister.get('email')?.touched">
+                                            ¡Email is Required!</div>
                                         <label class="form-label" for="registerEmail"
                                             style="margin-left: 0px;">Email</label>
                                         <div class="form-notch">
@@ -162,7 +186,12 @@
 
                                     <!-- Password input -->
                                     <div class="form-outline mb-4">
-                                        <input type="password" id="registerPassword" class="form-control" formControlName="password">
+                                        <input type="password" id="registerPassword" class="form-control"
+                                            formControlName="password" [class.is-valid]="isPasswordFieldRegisterValid"
+                                            [class.is-invalid]="isPasswordFieldRegisterInvalid">
+                                        <div class="fst-italic"
+                                            *ngIf="passwordFieldRegister?.hasError('required') && this.formRegister.get('password')?.touched">
+                                            ¡Password is Required!</div>
                                         <label class="form-label" for="registerPassword"
                                             style="margin-left: 0px;">Password</label>
                                         <div class="form-notch">
@@ -173,17 +202,20 @@
                                     </div>
 
                                     <!-- Checkbox -->
-                                    <div class="form-check d-flex justify-content-center mb-4">
+                                    <div class="form-check d-flex justify-content-center">
                                         <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck"
-                                            checked="" aria-describedby="registerCheckHelpText">
+                                            checked="" aria-describedby="registerCheckHelpText" formControlName="agree">
                                         <label class="form-check-label" for="registerCheck">
                                             I have read and agree to the terms
                                         </label>
                                     </div>
+                                    <div class="fst-italic"
+                                    *ngIf="agreeFieldRegister?.hasError('required') && this.formRegister.get('agree')?.touched">
+                                    Agree to the Terms!!!</div>
 
                                     <!-- Submit button -->
 
-                                    <div class="text-center mb-4">
+                                    <div class="text-center mb-4 mt-4">
                                         <button type="submit" class="btn btn-primary mb-3">Sign
                                             up</button>
                                     </div>
