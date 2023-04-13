@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FirebaseApp } from '@angular/fire/compat';
+import { GoogleAuthProvider } from '@firebase/auth';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService, private afAuth: AngularFireAuth, private firebase: FirebaseApp){}
 
   logout(){
     this.authService.logout();
@@ -17,5 +20,5 @@ export class AppComponent {
   user(){
     return this.authService.loggedIn();
   }
-  
+
 }

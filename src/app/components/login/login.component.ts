@@ -101,6 +101,14 @@ export class LoginComponent {
 
   }
 
+  loginGoogle(){
+    this.authService.GoogleAuth();
+  }
+
+  loginFacebook(){
+    this.authService.FacebookAuth();
+  }
+
   isRegisterRoute() {
     return this.router.url === '/register';
   }
@@ -108,8 +116,6 @@ export class LoginComponent {
   isLoginRoute() {
     return this.router.url === '/login';
   }
-
-  // Login
 
   get emailField() {
     return this.formLogin.get('email');

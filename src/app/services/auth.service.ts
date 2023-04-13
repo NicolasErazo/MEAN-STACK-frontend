@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +13,7 @@ export class AuthService {
 
   readonly URL_API = 'https://api-rest-nodejs-fi7s.onrender.com';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, public afAuth: AngularFireAuth,) { }
 
   login(user: any) {
     return this.http.post<any>(this.URL_API + '/login', user);
@@ -24,7 +27,7 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login'])
     Swal.fire({
@@ -39,8 +42,33 @@ export class AuthService {
     })
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token');
+  }
+
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+  }
+
+  FacebookAuth() {
+    return this.AuthLogin(new FacebookAuthProvider());
+  }
+
+  AuthLogin(provider: any) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then(async (result) => {
+        console.log('You have been successfully logged in!', result.credential);
+        const user = result.user;
+        if (user) {
+          const token = await user.getIdToken();
+          localStorage.setItem('token', token);
+          this.router.navigate(['/employees']);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
 }

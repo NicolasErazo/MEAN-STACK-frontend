@@ -28,19 +28,11 @@
                                     <div class="text-center mb-3">
                                         <p>Sign in with:</p>
                                         <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-facebook-f"></i>
+                                            <i class="fab fa-facebook-f" (click)="loginFacebook()"></i>
                                         </button>
 
                                         <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
-                                        </button>
-
-                                        <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-twitter"></i>
-                                        </button>
-
-                                        <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
+                                            <i class="fab fa-google" (click)="loginGoogle()"></i>
                                         </button>
                                     </div>
 
@@ -115,19 +107,11 @@
                                     <div class="text-center mb-3">
                                         <p>Sign up with:</p>
                                         <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-facebook-f"></i>
+                                            <i class="fab fa-facebook-f" (click)="loginFacebook()"></i>
                                         </button>
 
                                         <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-google"></i>
-                                        </button>
-
-                                        <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-twitter"></i>
-                                        </button>
-
-                                        <button type="button" class="btn btn-link btn-floating mx-1">
-                                            <i class="fab fa-github"></i>
+                                            <i class="fab fa-google" (click)="loginGoogle()"></i>
                                         </button>
                                     </div>
 
@@ -210,8 +194,8 @@
                                         </label>
                                     </div>
                                     <div class="fst-italic"
-                                    *ngIf="agreeFieldRegister?.hasError('required') && this.formRegister.get('agree')?.touched">
-                                    Agree to the Terms!!!</div>
+                                        *ngIf="agreeFieldRegister?.hasError('required') && this.formRegister.get('agree')?.touched">
+                                        Agree to the Terms!!!</div>
 
                                     <!-- Submit button -->
 
